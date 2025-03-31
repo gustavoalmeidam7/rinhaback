@@ -6,6 +6,11 @@ services:
       - db
     expose:
       - "8080"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.5GB'
 
   api2: # API - Instância 01
     image: gustavo/api
@@ -14,6 +19,11 @@ services:
       - db
     expose:
       - "8080"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.5GB'
 
   nginx: # Load Balancer
     image: nginx:latest
@@ -24,19 +34,21 @@ services:
       - api2
     ports:
       - "9999:9999"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: '0.5GB'
     
   db: # Banco de dados
     image: postgres
     restart: always
-    ports:
-      - "5432:5432"
     volumes:
       - ./docker-compose-files/init.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
       POSTGRES_PASSWORD: "senhabanco123"
-   
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
+    deploy:
+      resources:
+        limits:
+          cpus: '0.75'
+          memory: '1.5GB'
