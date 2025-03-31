@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gustavo.rinhaback.DTOs.UserDTO;
 import com.gustavo.rinhaback.domain.user.*;
 import com.gustavo.rinhaback.services.UserService;
 import com.gustavo.rinhaback.validator.UserDTOValidator;

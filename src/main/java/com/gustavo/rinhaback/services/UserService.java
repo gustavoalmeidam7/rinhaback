@@ -8,8 +8,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.gustavo.rinhaback.DTOs.UserDTO;
 import com.gustavo.rinhaback.domain.user.User;
+import com.gustavo.rinhaback.domain.user.UserDTO;
 import com.gustavo.rinhaback.repositories.UserRepository;
 
 import lombok.AllArgsConstructor;

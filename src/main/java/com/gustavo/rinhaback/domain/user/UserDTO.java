@@ -1,8 +1,6 @@
-package com.gustavo.rinhaback.DTOs;
+package com.gustavo.rinhaback.domain.user;
 
 import java.util.Date;
-
-import com.gustavo.rinhaback.domain.user.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

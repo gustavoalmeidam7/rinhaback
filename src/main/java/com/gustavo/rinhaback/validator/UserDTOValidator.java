@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import com.gustavo.rinhaback.DTOs.UserDTO;
+import com.gustavo.rinhaback.domain.user.UserDTO;
 
 @Component
 public class UserDTOValidator implements Validator{
