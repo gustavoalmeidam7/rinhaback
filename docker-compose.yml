@@ -1,0 +1,42 @@
+services:
+  api1: # API - Instância 01
+    image: gustavo/api
+    hostname: api1
+    depends_on:
+      - db
+    expose:
+      - "8080"
+
+  api2: # API - Instância 01
+    image: gustavo/api
+    hostname: api2
+    depends_on:
+      - db
+    expose:
+      - "8080"
+
+  nginx: # Load Balancer
+    image: nginx:latest
+    volumes:
+      - ./docker-compose-files/ngnix.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - api1
+      - api2
+    ports:
+      - "9999:9999"
+    
+  db: # Banco de dados
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./docker-compose-files/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      POSTGRES_PASSWORD: "senhabanco123"
+   
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
